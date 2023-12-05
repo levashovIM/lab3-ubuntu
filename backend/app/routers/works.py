@@ -21,7 +21,7 @@ router = APIRouter(
 )
 
 @router.get("/", response_description="List of all works", response_model=List[WorkPreview], status_code=status.HTTP_200_OK)
-def get_all_works(db: Session=Depends(get_database)):
+def get_all_events(db: Session=Depends(get_database)):
 
     stmt = select(WorksModel.id, WorksModel.image)
     # print(stmt)
@@ -37,7 +37,7 @@ def get_all_works(db: Session=Depends(get_database)):
 
 
 @router.get("/id/{id}", response_description="Get work by id", response_model=Work, status_code=status.HTTP_200_OK)
-def get_work_by_id(id: int, db: Session=Depends(get_database)):
+def get_event_by_id(id: int, db: Session=Depends(get_database)):
 
     stmt = select(WorksModel).where(WorksModel.id == id).limit(1)
     work = database.execute(stmt).scalar()
@@ -52,7 +52,7 @@ def get_work_by_id(id: int, db: Session=Depends(get_database)):
 
 
 @router.post("/", response_description="Create new work", response_model=Work, status_code=status.HTTP_201_CREATED)
-def create_work(work: BaseWork, database: Session=Depends(get_database)):
+def create_event(work: BaseWork, database: Session=Depends(get_database)):
 
     try:
         new_work = database.execute(
