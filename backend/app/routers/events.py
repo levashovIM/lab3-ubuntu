@@ -80,6 +80,6 @@ def get_events_by_type(type: str, database: Session=Depends(get_database)):
     if events == []:
         raise HTTPException(
             status_code = status.HTTP_404_NOT_FOUND,
-            detail=f"Looks like you've lost! Are you sure about that type {type}?"
+            detail=f"Are you sure about that type {type}?"
         )
     return events
