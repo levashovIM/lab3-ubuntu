@@ -3,7 +3,7 @@ from datetime import date as date_type
 
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-from ..config.database import Base
+from config.database import Base
 
 class Events(Base):
     __tablename__ = "events"

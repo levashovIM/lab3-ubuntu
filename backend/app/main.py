@@ -1,17 +1,16 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 # Нужен для разворачивания БД, 
 # т.к. в нем хранится информация 
 # о структуре всех таблиц
-from .config.database import Base 
+from config.database import Base 
 
 # Движок для подключения к БД
-from .config.database import engine
+from config.database import engine
 
 # Подключаем роутеры
-from .routers import events
+from routers import events
 
 
 app = FastAPI(
@@ -19,8 +18,6 @@ app = FastAPI(
     docs_url = "/documentation",
     redoc_url = None
 )
-
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 origins = [
     "http://localhost",

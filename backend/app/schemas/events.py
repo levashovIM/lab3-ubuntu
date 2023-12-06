@@ -8,7 +8,7 @@ class BaseEvent(BaseModel):
     description: str
     type: str
 
-class Event(BaseWork):
+class Event(BaseEvent):
     id: int
 
 class EventPreview(BaseModel):
