@@ -11,7 +11,7 @@ from .config.database import Base
 from .config.database import engine
 
 # Подключаем роутеры
-from .routers import works
+from .routers import events
 
 
 app = FastAPI(
@@ -40,4 +40,4 @@ app.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 # Добавляем подключенный роутер в объект app
-app.include_router(works.router)
+app.include_router(events.router)

@@ -2,17 +2,16 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import date
 
-class BaseWork(BaseModel):
+class BaseEvent(BaseModel):
     date: date
     title: str
     description: str
     type: str
-    image: str
-    author_photo: str
 
-class Work(BaseWork):
+class Event(BaseWork):
     id: int
 
-class WorkPreview(BaseModel):
+class EventPreview(BaseModel):
     id: int
-    image: str
+    type: str
+    description: str

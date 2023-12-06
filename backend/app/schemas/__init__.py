@@ -1,1 +1,1 @@
-from .works import BaseWork, Work, WorkPreview
+from .events import BaseEvent, Event, EventPreview

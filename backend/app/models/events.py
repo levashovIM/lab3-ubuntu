@@ -3,10 +3,10 @@ from datetime import date as date_type
 
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-from ..config.db import Base
+from ..config.database import Base
 
-class Works(Base):
-    __tablename__ = "works"
+class Events(Base):
+    __tablename__ = "events"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False)
     date: Mapped[date_type]= mapped_column(TIMESTAMP, nullable=False)

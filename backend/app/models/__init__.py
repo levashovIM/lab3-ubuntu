@@ -1,1 +1,1 @@
-from .works import Works
+from .events import Events
