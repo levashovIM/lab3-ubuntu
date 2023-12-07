@@ -24,7 +24,6 @@ router = APIRouter(
 def get_all_events(database: Session=Depends(get_database)):
 
     stmt = select(EventsModel.id, EventsModel.image)
-    # print(stmt)
     events = database.execute(stmt).fetchall()
 
     if events == []:
